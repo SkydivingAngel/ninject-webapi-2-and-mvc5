@@ -10,41 +10,41 @@
 3. Install Nuget Package: **WebActivatorEx**
 4. Create a class in **App_Start** named **NinjectWebCommon.cs**
 
-    [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
-    [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
+        [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
+        [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
 
-    namespace YOURNAMESPACE<br>
-    {<br>
-        public static class NinjectWebCommon<br>
+        namespace YOURNAMESPACE<br>
         {<br>
-            private static readonly Bootstrapper bootstrapper = new Bootstrapper();
+            public static class NinjectWebCommon<br>
+            {<br>
+                private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
-            public static void Start()
-            {
-                DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
-                DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
-                bootstrapper.Initialize(CreateKernel);
-            }
+                public static void Start()
+                {
+                    DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
+                    DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
+                    bootstrapper.Initialize(CreateKernel);
+                }
 
-            public static void Stop()
-            {
-                bootstrapper.ShutDown();
-            }
+                public static void Stop()
+                {
+                    bootstrapper.ShutDown();
+                }
 
-            private static IKernel CreateKernel()
-            {
-                var kernel = new StandardKernel();
-                kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
-                kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
+                private static IKernel CreateKernel()
+                {
+                    var kernel = new StandardKernel();
+                    kernel.Bind<Func<IKernel>>().ToMethod(ctx => () => new Bootstrapper().Kernel);
+                    kernel.Bind<IHttpModule>().To<HttpApplicationInitializationHttpModule>();
 
-                RegisterServices(kernel);
-                return kernel;
+                    RegisterServices(kernel);
+                    return kernel;
+                }
+                private static void RegisterServices(IKernel kernel)
+                {
+                  //kernel.Bind<IRepo>().ToMethod(ctx => new Repo("Ninject Rocks!"));
+                }
             }
-            private static void RegisterServices(IKernel kernel)
-            {
-              //kernel.Bind<IRepo>().ToMethod(ctx => new Repo("Ninject Rocks!"));
-            }
-        }
-    }<br>
+        }<br>
 5. Configure your DI in RegisterServices
 6. Add dependency to Mvc or Web Api Controllers constructor parameters
