@@ -13,7 +13,7 @@
     [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
     [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
 
-    namespace <YOURNAMESPACE>
+    namespace YOURNAMESPACE<br>
     {
         public static class NinjectWebCommon
         {
