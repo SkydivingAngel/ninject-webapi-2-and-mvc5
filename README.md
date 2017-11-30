@@ -13,9 +13,9 @@
         [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
         [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
 
-        namespace YOURNAMESPACE<br>
+        namespace <YOURNAMESPACE>
         {
-            public static class NinjectWebCommon<br>
+            public static class NinjectWebCommon
             {
                 private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
