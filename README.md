@@ -15,8 +15,8 @@
 
     namespace YOURNAMESPACE<br>
     {<br>
-        public static class NinjectWebCommon
-        {
+        public static class NinjectWebCommon<br>
+        {<br>
             private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
             public static void Start()
