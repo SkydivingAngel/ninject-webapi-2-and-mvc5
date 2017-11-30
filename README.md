@@ -14,9 +14,9 @@
         [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
 
         namespace YOURNAMESPACE<br>
-        {<br>
+        {
             public static class NinjectWebCommon<br>
-            {<br>
+            {
                 private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
                 public static void Start()
@@ -45,6 +45,6 @@
                   //kernel.Bind<IRepo>().ToMethod(ctx => new Repo("Ninject Rocks!"));
                 }
             }
-        }<br>
+        }
 5. Configure your DI in RegisterServices
 6. Add dependency to Mvc or Web Api Controllers constructor parameters
