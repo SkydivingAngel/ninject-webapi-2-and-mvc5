@@ -8,7 +8,7 @@
 1. Create an Empty Web Application and select the checkboxes for Mvc and Web Api
 2. Install Nuget Package: **Ninject.Web.WebApi.WebHost**
 3. Install Nuget Package: **WebActivatorEx**
-4. Install Nuget Package: **Ninject.MVC5**, with the latest Ninject Release this is not necessary anymore, since it won't create the "NinjectWebCommon" class in "App_Start" anymore.
+4. Install Nuget Package: **Ninject.MVC5**, with the latest Ninject Release this **is not necessary anymore**, since it won't create the "NinjectWebCommon" class in "App_Start" anymore.
 5. Create a class in **App_Start** named **NinjectWebCommon.cs**
 
         [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
