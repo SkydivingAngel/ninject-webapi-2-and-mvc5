@@ -1,9 +1,8 @@
 # Ninject Integration in WebApi 2 And Mvc5
 
 **How to integrate Ninject in a WebApi 2 And Mvc5 Project**
-<br>Test Mvc in Index page
-<br>Test Web Api 2 calling the Get Method "IsServiceUp"
-<br>(Attribute Routing used, example url: http://www.foo.com/{eventual subfolder}/IsServiceUp)
+<br>Test Mvc in Index page example url: "http://localhost/WebApiAndMvc5/mvctest/Index"
+<br>Test Web Api 2 calling the Get Method "IsServiceUp" example url: "http://localhost/WebApiAndMvc5/IsServiceUp"
 <br><br>
 1. Create an Empty Web Application and select the checkboxes for Mvc and Web Api
 2. Install Nuget Package: **Ninject.Web.WebApi.WebHost**
