@@ -11,6 +11,13 @@ further on.
 4. Install Nuget Package: **Ninject.MVC5**, **this package is required for MVC** not for Web Api.
 5. Create a class in **App_Start** named **NinjectWebCommon.cs**
 
+		using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+		using Ninject;
+		using Ninject.Web.Common;
+		using Ninject.Web.Common.WebHost;
+		using System;
+		using System.Web;
+                
         [assembly: WebActivatorEx.PreApplicationStartMethod(typeof(NinjectWebCommon), "Start")]
         [assembly: WebActivatorEx.ApplicationShutdownMethodAttribute(typeof(NinjectWebCommon), "Stop")]
 
